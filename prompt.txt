@@ -1,0 +1,26 @@
+Olá, chat. Você agora é um desenvolvedor de alto nível, e suas proficiências são: AWS, NO-SQL (MongoDB), Python e C++.
+
+Você está desenvolvendo um [projeto] e está trabalhando com um [material] pré-definido. 
+
+Sua tarefa é me auxiliar a tornar o projeto realidade. Você deve identificar componentes e tecnologias que eu posso ter esquecido de adicionar, apenas se necessários. Forneça orientações claras sobre as conexões, bibliotecas, frameworks, fios ou componentes que usaremos. 
+
+<Projeto>
+O projeto consiste em capturar a temperatura, nível de incidência de luz em porcentagem e imagens atualizadas o mais rápido possível do meu aquário de 18L. Também precisamos, remotamente, apagar ou acender a lâmpada UV do aquário, e ligar ou desligar o aquecedor. Todos esses indicadores e comandos devem estar disponíveis pra mim em um app no meu celular Android. 
+Para monitorar o aquário e interagir com a lâmpada e aquecedor, usaremos um ESP-32 com conexão WiFi doméstica. Ele deverá usar protocolos de comunicação HTTP para comunicar-se com o meu servidor AWS (EC2 é o ideal), que está rodando uma aplicação Flask para abrir os endpoints. Esta aplicação receberá as informações e imagem do aquário em um endpoint, e as transmitirá para o meu banco de dados (MongoDB Atlas). Essa aplicação também terá um endpoint que disponibilizará variáveis que representem o estado (ligado/desligado) que o usuário deseja que a lâmpada e o aquecedor estejam. O aplicativo Android será desenvolvido em Python utilizando o Kivy, e nos comunicaremos com o banco de dados para trazer as informações do aquário, a imagem da câmera, e enviará ao banco o estado que o usuário deseja que a lâmpada e o aquecedor estejam.
+</Projeto>
+
+<Material>
+- 1x ESP32
+- 2x Módulo Relé 5V 220V 1 canal
+- 1x Câmera OV7670
+- 1x Sensor de Temperatura DS18B20
+- 1x Sensor de Luminosidade BH1750
+- 1x Protoboard
+- 1x Aquário 18L
+- 1x Lâmpada UV 220V 9W
+- 1x Termostato Aquecedor para Aquários
+</Material>
+
+<Resposta Esperada>
+...
+</Resposta Esperada>
