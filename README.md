@@ -1,57 +1,57 @@
-# ACQUA-TIC: Monitoramento e Controle Remoto de Aquário
+# ACQUA-TIC: Aquarium Monitoring and Remote Control
 
-## Descrição do Projeto
+## Project Description
 
-O **ACQUA-TIC** é um projeto concebido para monitorar e controlar um aquário de 18 litros, proporcionando uma experiência de aquarismo inteligente. Utilizando um ESP32 conectado à rede WiFi doméstica, o sistema captura dados em tempo real, como temperatura e níveis de incidência de luz, além de imagens atualizadas do aquário. Os usuários podem gerenciar remotamente a lâmpada UV e o aquecedor através de um aplicativo Android, garantindo que o ambiente aquático esteja sempre nas condições ideais.
+**ACQUA-TIC** is a project designed to monitor and control an 18-liter aquarium, providing an intelligent aquarium experience. Using an ESP32 connected to the home WiFi network, the system captures real-time data such as temperature and light levels, as well as updated images of the aquarium. Users can remotely manage the UV lamp and heater through an Android app, ensuring the aquatic environment is always in optimal conditions.
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 - **Hardware:**
-  - ESP32: Microcontrolador com conectividade WiFi
-  - Módulo Relé 5V: Para controlar a lâmpada UV e o aquecedor
-  - Câmera OV7670: Captura de imagem do aquário
-  - Sensor de Temperatura DS18B20: Monitoramento da temperatura da água
-  - Sensor de Luminosidade BH1750: Medição da luz ambiente
+  - ESP32: Microcontroller with WiFi connectivity
+  - 5V Relay Module: To control the UV lamp and heater
+  - OV7670 Camera: Captures images of the aquarium
+  - DS18B20 Temperature Sensor: Monitors water temperature
+  - BH1750 Light Sensor: Measures ambient light
 
 - **Software:**
-  - **AWS:** Utilização do EC2 para hospedar o servidor que processa as requisições.
-  - **Flask:** Framework web para criar a API RESTful que interage com o ESP32 e o banco de dados.
-  - **MongoDB Atlas:** Banco de dados NoSQL para armazenar os dados coletados e imagens do aquário.
-  - **Kivy:** Framework Python para desenvolvimento do aplicativo mobile para Android.
+  - **AWS:** Using EC2 to host the server that processes requests.
+  - **Flask:** Web framework to create the RESTful API that interacts with the ESP32 and the database.
+  - **MongoDB Atlas:** NoSQL database to store collected data and aquarium images.
+  - **Kivy:** Python framework for developing the mobile app for Android.
 
-## Estrutura do Projeto
+## Project Structure
 
-A estrutura do projeto é organizada nas seguintes pastas:
+The project structure is organized into the following folders:
 
-- `database/`: Scripts para configuração do banco de dados.
-- `esp32/`: Código para o microcontrolador ESP32.
-- `mobile_app/`: Código do aplicativo Android, incluindo ícones e interfaces.
-- `server/`: Código da aplicação Flask que gerencia os endpoints da API.
+- `database/`: Scripts for database configuration.
+- `esp32/`: Code for the ESP32 microcontroller.
+- `mobile_app/`: Code for the Android app, including icons and interfaces.
+- `server/`: Code for the Flask application that manages the API endpoints.
 
-## Funcionalidades
+## Features
 
-1. **Captura de Dados:**
-   - Medição de temperatura da água em tempo real.
-   - Leitura do nível de luminosidade utilizando o BH1750.
-   - Captura de imagens com a câmera a intervalos regulares.
+1. **Data Capture:**
+   - Real-time water temperature measurement.
+   - Reading light levels using the BH1750.
+   - Capturing images with the camera at regular intervals.
 
-2. **Controle Remoto:**
-   - Habilitação/desabilitação da lâmpada UV.
-   - Controle do aquecedor para manter a temperatura ideal do aquário.
+2. **Remote Control:**
+   - Enabling/disabling the UV lamp.
+   - Controlling the heater to maintain the ideal aquarium temperature.
 
-3. **Visualização de Dados:**
-   - Interface para visualização dos dados coletados e imagens no aplicativo Android.
+3. **Data Visualization:**
+   - Interface for viewing collected data and images in the Android app.
 
-## Instruções de Uso
+## Usage Instructions
 
-1. **Configuração do ESP32:**
-   - Carregue o código fornecido na pasta `esp32/` no ESP32 utilizando a IDE Arduino.
-   - Certifique-se de que o microcontrolador esteja conectado à mesma rede WiFi do servidor AWS.
+1. **ESP32 Configuration:**
+   - Upload the code provided in the `esp32/` folder to the ESP32 using the Arduino IDE.
+   - Ensure the microcontroller is connected to the same WiFi network as the AWS server.
 
-2. **Configuração do Servidor:**
-   - Implementar a aplicação Flask na AWS EC2.
-   - Configurar o MongoDB Atlas e conectar a aplicação ao banco de dados.
+2. **Server Configuration:**
+   - Deploy the Flask application on AWS EC2.
+   - Configure MongoDB Atlas and connect the application to the database.
 
-3. **Aplicativo Android:**
-   - Instale o aplicativo desenvolvido com Kivy em um dispositivo Android.
-   - Conecte-se à aplicação Flask para visualizar dados e controlar o aquário remotamente.
+3. **Android App:**
+   - Install the app developed with Kivy on an Android device.
+   - Connect to the Flask application to view data and remotely control the aquarium.

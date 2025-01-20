@@ -1,26 +1,26 @@
-Olá, chat. Você agora é um desenvolvedor de alto nível, e suas proficiências são: AWS, NO-SQL (MongoDB), Python e C++.
+Hello, chat. You are now a high-level developer, and your proficiencies are: AWS, NO-SQL (MongoDB), Python, and C++.
 
-Você está desenvolvendo um [projeto] e está trabalhando com um [material] pré-definido. 
+You are developing a [project] and working with predefined [material].
 
-Sua tarefa é me auxiliar a tornar o projeto realidade. Você deve identificar componentes e tecnologias que eu posso ter esquecido de adicionar, apenas se necessários. Forneça orientações claras sobre as conexões, bibliotecas, frameworks, fios ou componentes que usaremos. 
+Your task is to help me make the project a reality. You should identify components and technologies that I may have forgotten to add, only if necessary. Provide clear guidance on the connections, libraries, frameworks, wires, or components we will use.
 
-<Projeto>
-O projeto consiste em capturar a temperatura, nível de incidência de luz em porcentagem e imagens atualizadas o mais rápido possível do meu aquário de 18L. Também precisamos, remotamente, apagar ou acender a lâmpada UV do aquário, e ligar ou desligar o aquecedor. Todos esses indicadores e comandos devem estar disponíveis pra mim em um app no meu celular Android. 
-Para monitorar o aquário e interagir com a lâmpada e aquecedor, usaremos um ESP-32 com conexão WiFi doméstica. Ele deverá usar protocolos de comunicação HTTP para comunicar-se com o meu servidor AWS (EC2 é o ideal), que está rodando uma aplicação Flask para abrir os endpoints. Esta aplicação receberá as informações e imagem do aquário em um endpoint, e as transmitirá para o meu banco de dados (MongoDB Atlas). Essa aplicação também terá um endpoint que disponibilizará variáveis que representem o estado (ligado/desligado) que o usuário deseja que a lâmpada e o aquecedor estejam. O aplicativo Android será desenvolvido em Python utilizando o Kivy, e nos comunicaremos com o banco de dados para trazer as informações do aquário, a imagem da câmera, e enviará ao banco o estado que o usuário deseja que a lâmpada e o aquecedor estejam.
-</Projeto>
+<Project>
+The project consists of capturing the temperature, light incidence level in percentage, and updated images as quickly as possible from my 18L aquarium. We also need to remotely turn the aquarium's UV lamp on or off and turn the heater on or off. All these indicators and commands should be available to me in an app on my Android phone.
+To monitor the aquarium and interact with the lamp and heater, we will use an ESP-32 with a home WiFi connection. It should use HTTP communication protocols to communicate with my AWS server (EC2 is ideal), which is running a Flask application to open the endpoints. This application will receive the information and image from the aquarium at an endpoint and transmit them to my database (MongoDB Atlas). This application will also have an endpoint that will provide variables representing the state (on/off) that the user wants the lamp and heater to be in. The Android app will be developed in Python using Kivy, and we will communicate with the database to bring the aquarium information, the camera image, and send to the database the state that the user wants the lamp and heater to be in.
+</Project>
 
 <Material>
 - 1x ESP32
-- 2x Módulo Relé 5V 220V 1 canal
-- 1x Câmera OV7670
-- 1x Sensor de Temperatura DS18B20
-- 1x Sensor de Luminosidade BH1750
-- 1x Protoboard
-- 1x Aquário 18L
-- 1x Lâmpada UV 220V 9W
-- 1x Termostato Aquecedor para Aquários
+- 2x 5V 220V 1-channel Relay Module
+- 1x OV7670 Camera
+- 1x DS18B20 Temperature Sensor
+- 1x BH1750 Light Sensor
+- 1x Breadboard
+- 1x 18L Aquarium
+- 1x 220V 9W UV Lamp
+- 1x Aquarium Heater Thermostat
 </Material>
 
-<Resposta Esperada>
+<Expected Response>
 ...
-</Resposta Esperada>
+</Expected Response>
