@@ -5,3 +5,4 @@ cmd = "gunicorn server.app:app"
 
 [build]
 build_command = "pip install -r requirements/requirements.server.txt"
+app_directory = "server"
