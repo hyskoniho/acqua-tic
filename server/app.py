@@ -1,12 +1,7 @@
-import platform
 from flask import Flask, request, send_file, jsonify
+from tools import base64_to_image
+from database import set_stats, set_image, get_image, get_commands
 
-if platform.system() == 'Windows':
-    from tools import base64_to_image
-    from database import set_stats, set_image, get_image, get_commands
-else:
-    from .tools import base64_to_image
-    from .database import set_stats, set_image, get_image, get_commands
 
 app = Flask(__name__)
 
