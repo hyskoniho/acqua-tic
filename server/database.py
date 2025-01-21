@@ -2,13 +2,13 @@ from typing import Tuple
 from pymongo.collection import Collection
 from pymongo.mongo_client import MongoClient
 
-import certifi
+import certifi, os
 import dns.resolver
 dns.resolver.default_resolver=dns.resolver.Resolver(configure=False)
 dns.resolver.default_resolver.nameservers=['8.8.8.8']
 collection=None
 
-def _build_connection(uri: str = '') -> Collection:
+def _build_connection(uri: str = os.getenv("uri", "")) -> Collection:
     global collection
     try:
         if not collection: raise
