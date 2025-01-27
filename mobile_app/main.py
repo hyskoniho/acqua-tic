@@ -18,8 +18,6 @@ from kivy.core.image import Image as CoreImage
 from io import BytesIO
 from base64 import b64decode
 import sys, traceback
-from dotenv import load_dotenv
-load_dotenv() # Load environment variables
 
 # Local imports
 import database as db
