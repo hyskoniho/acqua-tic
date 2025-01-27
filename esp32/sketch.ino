@@ -22,24 +22,24 @@ bool lamp = false;    // Estado do LED 2 (relé 2)
 
 const char* ssid = "Wokwi-GUEST"; // Rede WiFi
 const char* password = ""; // Senha
-const char* url = "https://www.google.com";
+//String* base_url = ";
 
 // Função para enviar os dados via POST para o endpoint "/send-stats"
 void sendStats(int lux, float temp) {
   HTTPClient http;
-  String url = base_url + "/update-stats";
-  
+  String url = "";
+
   http.begin(url);  // Inicia a conexão HTTP
   http.addHeader("Content-Type", "application/json");  // Define o tipo de conteúdo como JSON
-  
+
   // Cria o JSON para o POST
   DynamicJsonDocument doc(1024);
   doc["lux"] = lux;
   doc["temp"] = temp;
-  
+
   String payload;
   serializeJson(doc, payload);  // Serializa o JSON para enviar no corpo da requisição
-  
+
   int httpCode = http.POST(payload);  // Faz a requisição POST
 
   if (httpCode > 0) {
@@ -55,8 +55,8 @@ void sendStats(int lux, float temp) {
 // Função para realizar a requisição GET no endpoint "/get-commands" e retornar os valores booleanos
 void getCommands(bool &heater, bool &lamp) {
   HTTPClient http;
-  String url = base_url + "/get-commands";
-  
+  String url = "";
+
   http.begin(url);  // Inicia a conexão HTTP
   int httpCode = http.GET();  // Faz a requisição GET
 
@@ -70,7 +70,7 @@ void getCommands(bool &heater, bool &lamp) {
 
     heater = doc["heat"];  // Atribui o valor de "heater"
     lamp = doc["lamp"];      // Atribui o valor de "lamp"
-    
+
     // Exibir os valores de heater e lamp
     Serial.println("Heater: " + String(heater));
     Serial.println("Lamp: " + String(lamp));
@@ -91,7 +91,7 @@ void setup() {
 
   // Inicializa a comunicação serial
   Serial.begin(115200);
-  
+
   // Inicializa o sensor de temperatura
   sensors.begin();
   Serial.println("Iniciando leitura do LDR e DS18B20...");
@@ -109,7 +109,7 @@ void loop() {
   // Leitura do LDR
   int ldrValue = analogRead(LDR_PIN);
   int ldrPercent = map(ldrValue, 0, 4095, 100, 0); // Inverte a escala para porcentagem
-  
+
   // Exibe o valor do LDR no monitor serial
   Serial.println("Valor LDR (bruto): ");
   Serial.print(ldrValue);
