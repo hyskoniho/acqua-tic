@@ -1,0 +1,807 @@
+{
+  "name": "Control",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aquatic-data",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        160
+      ],
+      "id": "9798a7ac-333a-41f1-b9dd-4db0d6ded462",
+      "name": "Data Input",
+      "webhookId": "9a3b032c-e35c-4dde-ba40-38b53dab1fe0"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "dataTableId": {
+          "__rl": true,
+          "value": "4YA9hEAvKEtPc8WB",
+          "mode": "list",
+          "cachedResultName": "aquatic",
+          "cachedResultUrl": "/projects/AQZNm4sAOC6Wo9bW/datatables/4YA9hEAvKEtPc8WB"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyValue": "1"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "temperature": "={{ $json.body.temp }}",
+            "lux": "={{ $json.body.lux }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "image",
+              "displayName": "image",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "lux",
+              "displayName": "lux",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "temperature",
+              "displayName": "temperature",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "heater",
+              "displayName": "heater",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "lamp",
+              "displayName": "lamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        224,
+        160
+      ],
+      "id": "ce778a23-20ed-4cf8-a58a-e803ab928e8e",
+      "name": "Update Data"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "dataTableId": {
+          "__rl": true,
+          "value": "4YA9hEAvKEtPc8WB",
+          "mode": "list",
+          "cachedResultName": "aquatic",
+          "cachedResultUrl": "/projects/AQZNm4sAOC6Wo9bW/datatables/4YA9hEAvKEtPc8WB"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyValue": "1"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "heater": "={{ $json.body.heater }}",
+            "lamp": "={{ $json.body.lamp }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "image",
+              "displayName": "image",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "lux",
+              "displayName": "lux",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "temperature",
+              "displayName": "temperature",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "heater",
+              "displayName": "heater",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "lamp",
+              "displayName": "lamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        224,
+        -64
+      ],
+      "id": "e5fb0885-a54c-4e2d-a2da-ffbd40cae5be",
+      "name": "Update Command"
+    },
+    {
+      "parameters": {
+        "path": "get-commands",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        384
+      ],
+      "id": "6e8e02b4-b667-4e6e-b264-2faf3e565306",
+      "name": "Command Get",
+      "webhookId": "9a3b032c-e35c-4dde-ba40-38b53dab1fe0"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aquatic-commands",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        -64
+      ],
+      "id": "3cb4e7a5-2c2d-4e6c-9de4-ca390b02883a",
+      "name": "Command Input",
+      "webhookId": "9a3b032c-e35c-4dde-ba40-38b53dab1fe0"
+    },
+    {
+      "parameters": {
+        "path": "get-data",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        608
+      ],
+      "id": "280bded7-2e6f-4fb6-a7c6-ff279b959efd",
+      "name": "Data Get",
+      "webhookId": "9a3b032c-e35c-4dde-ba40-38b53dab1fe0"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "4YA9hEAvKEtPc8WB",
+          "mode": "list",
+          "cachedResultName": "aquatic",
+          "cachedResultUrl": "/projects/AQZNm4sAOC6Wo9bW/datatables/4YA9hEAvKEtPc8WB"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyValue": "1"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        224,
+        384
+      ],
+      "id": "93263730-df8b-4288-96b8-e673fc53f457",
+      "name": "Get Command"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "4YA9hEAvKEtPc8WB",
+          "mode": "list",
+          "cachedResultName": "aquatic",
+          "cachedResultUrl": "/projects/AQZNm4sAOC6Wo9bW/datatables/4YA9hEAvKEtPc8WB"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyValue": "1"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        224,
+        608
+      ],
+      "id": "58124112-4f16-493d-812a-f6fc2962a0bb",
+      "name": "Get Data"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"heat\": {{ $json.heater }},\n  \"lamp\": {{ $json.lamp }}\n} ",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        448,
+        384
+      ],
+      "id": "84055764-e7ac-44d1-bfa1-4f22d2b19099",
+      "name": "Respond Command"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"lux\": {{ $json.lux }},\n  \"temp\": {{ $json.temperature }}\n} ",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        448,
+        608
+      ],
+      "id": "8ff4d678-2e85-4768-8a1b-f69893c374b3",
+      "name": "Respond Data"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "dataTableId": {
+          "__rl": true,
+          "value": "4YA9hEAvKEtPc8WB",
+          "mode": "list",
+          "cachedResultName": "aquatic",
+          "cachedResultUrl": "/projects/AQZNm4sAOC6Wo9bW/datatables/4YA9hEAvKEtPc8WB"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyValue": "1"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "image": "={{ $json.body.image }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "image",
+              "displayName": "image",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "lux",
+              "displayName": "lux",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "temperature",
+              "displayName": "temperature",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "heater",
+              "displayName": "heater",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "lamp",
+              "displayName": "lamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        224,
+        -288
+      ],
+      "id": "cc5de21d-4e2f-4eb5-bd81-49c1f3131f38",
+      "name": "Update Image"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aquatic-image",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        -288
+      ],
+      "id": "8de11ebc-cd32-49c4-809b-02262d6266ec",
+      "name": "Image Input",
+      "webhookId": "9a3b032c-e35c-4dde-ba40-38b53dab1fe0"
+    },
+    {
+      "parameters": {
+        "path": "get-image",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        832
+      ],
+      "id": "95e1f204-5eb9-472b-a1f0-39fd97c973dd",
+      "name": "Image Get",
+      "webhookId": "9a3b032c-e35c-4dde-ba40-38b53dab1fe0"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "4YA9hEAvKEtPc8WB",
+          "mode": "list",
+          "cachedResultName": "aquatic",
+          "cachedResultUrl": "/projects/AQZNm4sAOC6Wo9bW/datatables/4YA9hEAvKEtPc8WB"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyValue": "1"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        224,
+        832
+      ],
+      "id": "e603fbe0-dd50-42ca-a8ed-38ec797b29fd",
+      "name": "Get Image"
+    },
+    {
+      "parameters": {
+        "respondWith": "binary",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        672,
+        832
+      ],
+      "id": "33828d29-b41d-4411-a670-0238fbaaa723",
+      "name": "Respond Image"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "image",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        448,
+        832
+      ],
+      "id": "d3a3a73e-eca8-450f-a8f2-cb8e285d8e5e",
+      "name": "Convert to File"
+    }
+  ],
+  "pinData": {
+    "Data Input": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-fb02.up.railway.app",
+            "user-agent": "ESP32HTTPClient",
+            "content-length": "20",
+            "accept-encoding": "identity;q=1,chunked;q=0.1,*;q=0",
+            "content-type": "application/json",
+            "x-forwarded-for": "216.246.100.113",
+            "x-forwarded-host": "primary-production-fb02.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-west2",
+            "x-railway-request-id": "U5Yj5BQHSu2S2d8B9I3ezw",
+            "x-real-ip": "216.246.100.113",
+            "x-request-start": "1770386987865"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "lux": 98,
+            "temp": 22
+          },
+          "webhookUrl": "https://primary-production-fb02.up.railway.app/webhook/aquatic-data",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Command Get": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-fb02.up.railway.app",
+            "user-agent": "ESP32HTTPClient",
+            "accept-encoding": "identity;q=1,chunked;q=0.1,*;q=0",
+            "x-forwarded-for": "216.246.100.113",
+            "x-forwarded-host": "primary-production-fb02.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-west2",
+            "x-railway-request-id": "90OZM47ARAu-3bpxn6XIxQ",
+            "x-real-ip": "216.246.100.113",
+            "x-request-start": "1770386980212"
+          },
+          "params": {},
+          "query": {},
+          "body": {},
+          "webhookUrl": "https://primary-production-fb02.up.railway.app/webhook/get-commands",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Command Input": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-fb02.up.railway.app",
+            "user-agent": "ESP32HTTPClient",
+            "content-length": "20",
+            "accept-encoding": "identity;q=1,chunked;q=0.1,*;q=0",
+            "content-type": "application/json",
+            "x-forwarded-for": "216.246.100.113",
+            "x-forwarded-host": "primary-production-fb02.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-west2",
+            "x-railway-request-id": "U5Yj5BQHSu2S2d8B9I3ezw",
+            "x-real-ip": "216.246.100.113",
+            "x-request-start": "1770386987865"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "lux": 98,
+            "temp": 22
+          },
+          "webhookUrl": "https://primary-production-fb02.up.railway.app/webhook/aquatic-data",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "Data Get": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-fb02.up.railway.app",
+            "user-agent": "ESP32HTTPClient",
+            "accept-encoding": "identity;q=1,chunked;q=0.1,*;q=0",
+            "x-forwarded-for": "216.246.100.113",
+            "x-forwarded-host": "primary-production-fb02.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-west2",
+            "x-railway-request-id": "90OZM47ARAu-3bpxn6XIxQ",
+            "x-real-ip": "216.246.100.113",
+            "x-request-start": "1770386980212"
+          },
+          "params": {},
+          "query": {},
+          "body": {},
+          "webhookUrl": "https://primary-production-fb02.up.railway.app/webhook/get-commands",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "Image Input": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-fb02.up.railway.app",
+            "user-agent": "ESP32HTTPClient",
+            "content-length": "20",
+            "accept-encoding": "identity;q=1,chunked;q=0.1,*;q=0",
+            "content-type": "application/json",
+            "x-forwarded-for": "216.246.100.113",
+            "x-forwarded-host": "primary-production-fb02.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-west2",
+            "x-railway-request-id": "U5Yj5BQHSu2S2d8B9I3ezw",
+            "x-real-ip": "216.246.100.113",
+            "x-request-start": "1770386987865"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "lux": 98,
+            "temp": 22
+          },
+          "webhookUrl": "https://primary-production-fb02.up.railway.app/webhook/aquatic-data",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "Image Get": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-fb02.up.railway.app",
+            "user-agent": "ESP32HTTPClient",
+            "accept-encoding": "identity;q=1,chunked;q=0.1,*;q=0",
+            "x-forwarded-for": "216.246.100.113",
+            "x-forwarded-host": "primary-production-fb02.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-west2",
+            "x-railway-request-id": "90OZM47ARAu-3bpxn6XIxQ",
+            "x-real-ip": "216.246.100.113",
+            "x-request-start": "1770386980212"
+          },
+          "params": {},
+          "query": {},
+          "body": {},
+          "webhookUrl": "https://primary-production-fb02.up.railway.app/webhook/get-commands",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Data Input": {
+      "main": [
+        [
+          {
+            "node": "Update Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Command Get": {
+      "main": [
+        [
+          {
+            "node": "Get Command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Command Input": {
+      "main": [
+        [
+          {
+            "node": "Update Command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Get": {
+      "main": [
+        [
+          {
+            "node": "Get Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Command": {
+      "main": [
+        [
+          {
+            "node": "Respond Command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Data": {
+      "main": [
+        [
+          {
+            "node": "Respond Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Input": {
+      "main": [
+        [
+          {
+            "node": "Update Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Get": {
+      "main": [
+        [
+          {
+            "node": "Get Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Image": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Respond Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "9ee05d27-05f6-439a-9760-728b92ea5f17",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ae55024bd5cbcb660f23e7f005803e40434b65fc5b9535b0f2723cb2bbb76e1c"
+  },
+  "id": "E891TNtXLKBg4owOR0K5j",
+  "tags": []
+}

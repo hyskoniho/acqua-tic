@@ -27,7 +27,7 @@ const char* password = ""; // Senha
 // Função para enviar os dados via POST para o endpoint "/send-stats"
 void sendStats(int lux, float temp) {
   HTTPClient http;
-  String url = "";
+  String url = "https://primary-production-fb02.up.railway.app/webhook/aquatic-data";
 
   http.begin(url);  // Inicia a conexão HTTP
   http.addHeader("Content-Type", "application/json");  // Define o tipo de conteúdo como JSON
@@ -55,7 +55,7 @@ void sendStats(int lux, float temp) {
 // Função para realizar a requisição GET no endpoint "/get-commands" e retornar os valores booleanos
 void getCommands(bool &heater, bool &lamp) {
   HTTPClient http;
-  String url = "";
+  String url = "https://primary-production-fb02.up.railway.app/webhook/get-commands";
 
   http.begin(url);  // Inicia a conexão HTTP
   int httpCode = http.GET();  // Faz a requisição GET

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aquarium Cam</title>
+</head>
+<body>
+  <h2>🐟 Aquarium Live</h2>
+  <img id="cam" width="100%">
+
+  <script>
+    setInterval(() => {
+      document.getElementById("cam").src =
+        "https://primary-production-fb02.up.railway.app/webhook/get-image";
+    }, 3000);
+  </script>
+</body>
+</html>
